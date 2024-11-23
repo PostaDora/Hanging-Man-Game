@@ -1,5 +1,5 @@
 import { FC, ReactNode } from "react";
-import styles from "./gameButton.module.scss";
+import styles from "./letterButton.module.scss";
 import { clsx } from "clsx";
 
 interface IProps {
@@ -8,9 +8,9 @@ interface IProps {
   className?: string;
 }
 
-export const GameButton: FC<IProps> = ({ onclick, children, className }) => {
+export const LetterButton: FC<IProps> = ({ onclick, children, className }) => {
   return (
-    <button onClick={onclick} className={clsx(styles.gameButton, className)}>
+    <button onClick={onclick} className={clsx(styles.letterButton, className)}>
       {children}
     </button>
   );

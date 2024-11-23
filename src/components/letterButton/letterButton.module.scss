@@ -1,0 +1,19 @@
+
+.letterButton {
+    height: 5vh;
+    width: 5vw;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border: 1px solid black;
+    font-size: large;
+    box-shadow: inset;
+    font-weight: bold;
+    cursor: pointer;
+    
+    &:hover{
+        color: white;
+        background-color: black;
+      }
+  }
+  
+  
