@@ -1,0 +1,35 @@
+.container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    align-items: center;
+    justify-content: center;
+  
+    .cardTitle {
+      font-weight: bold;
+      padding-bottom: 5vh;
+      padding-top: 5vh;
+      text-align: center;
+    }
+  
+    .gameInstructionTitle {
+      padding-top: 5vh;
+      padding-bottom: 3vh;
+      text-align: center;
+    }
+    .gameInstruction {
+      padding-bottom: 3vh;
+    }
+    .gotItButton {
+      display: block;
+      margin: 0 auto;
+      cursor: pointer;
+
+    } 
+    .gotItButton:hover{
+      background-color: rgb(95, 147, 147);
+
+    }
+  }
+  
