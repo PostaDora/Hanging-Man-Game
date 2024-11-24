@@ -5,7 +5,7 @@ import { clsx } from "clsx";
 interface IProps {
   onclick: () => void;
   children: ReactNode;
-  className?: string;
+  className?: string | false;
 }
 
 export const LetterButton: FC<IProps> = ({ onclick, children, className }) => {

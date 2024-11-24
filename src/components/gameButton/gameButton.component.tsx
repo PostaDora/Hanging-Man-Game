@@ -6,11 +6,21 @@ interface IProps {
   onclick: () => void;
   children: ReactNode;
   className?: string;
+  disabled?: boolean;
 }
 
-export const GameButton: FC<IProps> = ({ onclick, children, className }) => {
+export const GameButton: FC<IProps> = ({
+  onclick,
+  children,
+  className,
+  disabled,
+}) => {
   return (
-    <button onClick={onclick} className={clsx(styles.gameButton, className)}>
+    <button
+      onClick={onclick}
+      className={clsx(styles.gameButton, className)}
+      disabled={disabled}
+    >
       {children}
     </button>
   );

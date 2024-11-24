@@ -3,9 +3,10 @@ import { useRouter } from "next/router";
 import styles from "./wordLengthSelector.module.scss";
 import { LetterButton } from "@/components/letterButton/letterButton.component";
 import { GameButton } from "@/components/gameButton/gameButton.component";
+import clsx from "clsx";
 
 export default function Home() {
-  const [wordLengthButton, setWordLengthButton] = useState("");
+  const [selectedWordLength, setSelectedWordLength] = useState("");
   const router = useRouter();
 
   const wordLengthArray = ["3", "4", "5", "7", "8", "9", "Random"];
@@ -18,17 +19,22 @@ export default function Home() {
       <div className={styles.lengthButtonContainer}>
         {wordLengthArray.map((wordLength) => (
           <LetterButton
+            className={clsx(
+              selectedWordLength === wordLength && styles.letterButton
+            )}
             key={wordLength}
-            onclick={() => setWordLengthButton(wordLength)}
-            className={styles.letterButton}
+            onclick={() => {
+              setSelectedWordLength(wordLength);
+            }}
           >
             {wordLength}
           </LetterButton>
         ))}
       </div>
       <GameButton
-        onclick={() => router.push(`/game/${wordLengthButton}/`)}
+        onclick={() => router.push(`/game/${selectedWordLength}/`)}
         className={styles.gameButton}
+        disabled={!selectedWordLength}
       >
         Lets play
       </GameButton>

@@ -1,36 +1,41 @@
 .container {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 40%;
-    align-items: center;
-    justify-content: center;
-  
-    .cardTitle {
-      font-weight: bold;
-      padding-bottom: 5vh;
-      padding-top: 5vh;
-      text-align: center;
-    }
-    .text{
-      text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  padding-bottom: 20px;
+
+  .cardTitle {
+    font-weight: bold;
+    padding-bottom: 5vh;
+    padding-top: 5vh;
+    text-align: center;
+  }
+  .text {
+    text-align: center;
+  }
+
+  .lengthButtonContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2vw;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    & > button:last-child {
+      width: 100%;
+      grid-column: 1 / span 3;
     }
 
-    .lengthButtonContainer{
-      display: grid;
-      grid-template-columns: 3vw 3vw 3vw;
-      grid-template-rows: 3vh 3vh 3vh; 
-      column-gap: 3vw;
-      row-gap: 3vh;
-      padding-top: 10vh;
-     padding-bottom: 15vh;
-     
- }
-  
-    .gameButton {
-      display: block;
-      margin: 0 auto;
-    } 
-  
+    .letterButton {
+      color: white;
+      background-color: black;
+    }
   }
-  
+
+  .gameButton {
+    display: block;
+    margin: 0 auto;
+  }
+}
