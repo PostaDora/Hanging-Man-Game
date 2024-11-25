@@ -14,10 +14,10 @@
     box-shadow: inset;
     font-weight: bold;
     cursor: pointer;
-  }
-  .disabledButton {
-    color: white;
-    background-color: black;
-    cursor: auto;
+
+    &:disabled {
+      opacity: 0.25;
+      cursor: not-allowed;
+    }
   }
 }

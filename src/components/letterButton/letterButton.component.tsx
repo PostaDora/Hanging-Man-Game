@@ -3,14 +3,24 @@ import styles from "./letterButton.module.scss";
 import { clsx } from "clsx";
 
 interface IProps {
-  onclick: () => void;
-  children: ReactNode;
   className?: string | false;
+  children: ReactNode;
+  disabled?: boolean;
+  onclick: () => void;
 }
 
-export const LetterButton: FC<IProps> = ({ onclick, children, className }) => {
+export const LetterButton: FC<IProps> = ({
+  onclick,
+  children,
+  disabled,
+  className,
+}) => {
   return (
-    <button onClick={onclick} className={clsx(styles.letterButton, className)}>
+    <button
+      onClick={onclick}
+      className={clsx(styles.letterButton, className)}
+      disabled={disabled}
+    >
       {children}
     </button>
   );

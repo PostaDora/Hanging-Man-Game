@@ -12,8 +12,6 @@ export const Solution = () => {
 
   const wasLetterGuessed = (letter: string) => guessedLetters.includes(letter);
 
-  console.log(solution, guessedLetters);
-
   return (
     <div className={styles.solution}>
       {solution.split("").map((letter, index: number) => (

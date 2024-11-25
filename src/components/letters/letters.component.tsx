@@ -1,17 +1,19 @@
 import { useGameStore } from "@/store/game.store";
-import { LetterButton } from "../letterButton/letterButton.component";
 import { useState } from "react";
-import styles from "./letters.module.scss";
-import clsx from "clsx";
 import { useShallow } from "zustand/shallow";
+import { LetterButton } from "../letterButton/letterButton.component";
+import styles from "./letters.module.scss";
 
 export const Letters = () => {
-  const { guessedLetters, updateGuessedLetters } = useGameStore(
-    useShallow((state) => ({
-      guessedLetters: state.guessedLetters,
-      updateGuessedLetters: state.updateGuessedLetters,
-    }))
-  );
+  const { solution, guessedLetters, updateGuessedLetters, updateWrongLetters } =
+    useGameStore(
+      useShallow((state) => ({
+        solution: state.solution,
+        guessedLetters: state.guessedLetters,
+        updateGuessedLetters: state.updateGuessedLetters,
+        updateWrongLetters: state.updateWrongLetters,
+      }))
+    );
 
   const [selectedLetters, setSelectedLetters] = useState(guessedLetters);
 
@@ -49,13 +51,14 @@ export const Letters = () => {
       {letters.map((letter) => (
         <LetterButton
           key={letter}
-          className={clsx(
-            styles.letterButton,
-            guessedLetters.includes(letter) && styles.disabledButton
-          )}
+          className={styles.letterButton}
+          disabled={guessedLetters.includes(letter.toLowerCase())}
           onclick={() => {
             updateGuessedLetters(letter.toLowerCase());
             setSelectedLetters([...selectedLetters, letter.toLowerCase()]);
+            if (!solution.includes(letter.toLowerCase())) {
+              updateWrongLetters(letter.toLowerCase());
+            }
           }}
         >
           {letter}

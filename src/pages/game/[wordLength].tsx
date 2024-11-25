@@ -7,10 +7,16 @@ import { useShallow } from "zustand/shallow";
 import styles from "./game.module.scss";
 import { Letters } from "@/components/letters/letters.component";
 import { Solution } from "@/components/solution/solution.component";
+import { Hangman } from "@/components/hangman/hangman.component";
 
 export default function Home() {
   const router = useRouter();
-  const generateSolution = useGameStore((state) => state.generateSolution);
+  const { generateSolution, wrongLetters } = useGameStore(
+    useShallow((state) => ({
+      generateSolution: state.generateSolution,
+      wrongLetters: state.wrongLetters,
+    }))
+  );
 
   const selectedNumber = router.query.wordLength;
 
@@ -27,6 +33,7 @@ export default function Home() {
         <Image src="rightArrow.svg" alt="Right arrow" width="10" height="10" />
       </button>
       <h1 className={styles.cardTitle}>The Hangman</h1>
+      <Hangman width={100} height={100} wrongLetters={wrongLetters} />
       <Solution />
       <p>Play with a word</p>
       <Letters />

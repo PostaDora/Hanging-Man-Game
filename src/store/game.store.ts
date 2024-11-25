@@ -5,9 +5,11 @@ import { persist } from "zustand/middleware";
 interface GameState {
   solution: string;
   guessedLetters: string[];
+  wrongLetters: string[];
 
   generateSolution: (wordLength?: number) => void;
   updateGuessedLetters: (letter: string) => void;
+  updateWrongLetters: (letter: string) => void;
 }
 
 export const useGameStore = create<GameState>()(
@@ -15,6 +17,7 @@ export const useGameStore = create<GameState>()(
     (set, get) => ({
       solution: "",
       guessedLetters: [],
+      wrongLetters: [],
 
       generateSolution: (wordLength) => {
         const solution = getRandomWord(wordLength);
@@ -23,6 +26,10 @@ export const useGameStore = create<GameState>()(
       updateGuessedLetters: (letter) => {
         const { guessedLetters } = get();
         set({ guessedLetters: [...guessedLetters, letter] });
+      },
+      updateWrongLetters: (letter) => {
+        const { wrongLetters } = get();
+        set({ wrongLetters: [...wrongLetters, letter] });
       },
     }),
     {
