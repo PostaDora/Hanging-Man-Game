@@ -1,0 +1,10 @@
+.solution {
+  display: flex;
+  gap: 8px;
+  .letter {
+    height: 35px;
+    width: 35px;
+    background-color: white;
+    border: 1px solid black;
+  }
+}

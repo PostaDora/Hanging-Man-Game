@@ -4,12 +4,15 @@ import styles from "./wordLengthSelector.module.scss";
 import { LetterButton } from "@/components/letterButton/letterButton.component";
 import { GameButton } from "@/components/gameButton/gameButton.component";
 import clsx from "clsx";
+import { words } from "../words";
 
 export default function Home() {
   const [selectedWordLength, setSelectedWordLength] = useState("");
   const router = useRouter();
 
-  const wordLengthArray = ["3", "4", "5", "7", "8", "9", "Random"];
+  const wordLengthArray = Array.from(
+    new Set(words.map((word) => word.length.toString()))
+  );
 
   return (
     <main className={styles.container}>
@@ -30,6 +33,17 @@ export default function Home() {
             {wordLength}
           </LetterButton>
         ))}
+        <LetterButton
+          className={clsx(
+            selectedWordLength === "Random" && styles.letterButton
+          )}
+          key="Random"
+          onclick={() => {
+            setSelectedWordLength("Random");
+          }}
+        >
+          Random
+        </LetterButton>
       </div>
       <GameButton
         onclick={() => router.push(`/game/${selectedWordLength}/`)}
