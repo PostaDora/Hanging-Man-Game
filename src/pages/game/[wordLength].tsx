@@ -7,16 +7,20 @@ import styles from "./game.module.scss";
 import { Letters } from "@/components/letters/letters.component";
 import { Solution } from "@/components/solution/solution.component";
 import { Hangman } from "@/components/hangman/hangman.component";
+import { Message } from "@/components/message/message.component";
 
 export default function Home() {
   const router = useRouter();
-  const { generateSolution, wrongLetters, reset } = useGameStore(
-    useShallow((state) => ({
-      generateSolution: state.generateSolution,
-      wrongLetters: state.wrongLetters,
-      reset: state.reset,
-    }))
-  );
+  const { guessedLetters, solution, generateSolution, wrongLetters, reset } =
+    useGameStore(
+      useShallow((state) => ({
+        guessedLetters: state.guessedLetters,
+        solution: state.solution,
+        generateSolution: state.generateSolution,
+        wrongLetters: state.wrongLetters,
+        reset: state.reset,
+      }))
+    );
 
   const selectedNumber = router.query.wordLength;
 
@@ -29,10 +33,15 @@ export default function Home() {
   return (
     <main className={styles.container}>
       <h1 className={styles.cardTitle}>The Hangman</h1>
-      <div className={styles.solutionContainer}>
+      <div className={styles.hangmanContainer}>
         <Hangman width={100} height={100} wrongLetters={wrongLetters.length} />
-        <Solution />
+        <Message
+          wrongLetters={wrongLetters.length}
+          solution={solution}
+          guessedLetters={guessedLetters}
+        />
       </div>
+      <Solution />
       <p className={styles.subtitle}>Play with a word</p>
       <Letters />
       <GameButton
