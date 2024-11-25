@@ -35,11 +35,11 @@ export default function Home() {
         ))}
         <LetterButton
           className={clsx(
-            selectedWordLength === "Random" && styles.letterButton
+            selectedWordLength === "random" && styles.letterButton
           )}
-          key="Random"
+          key="random"
           onclick={() => {
-            setSelectedWordLength("Random");
+            setSelectedWordLength("random");
           }}
         >
           Random
