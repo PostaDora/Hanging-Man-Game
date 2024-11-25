@@ -25,6 +25,7 @@ export default function Game() {
   const selectedNumber = router.query.wordLength;
 
   useEffect(() => {
+    reset();
     const isNumber =
       typeof selectedNumber === "string" && !isNaN(parseInt(selectedNumber));
     generateSolution(isNumber ? parseInt(selectedNumber) : undefined);
