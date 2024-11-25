@@ -32,7 +32,7 @@ export default function Game() {
     return () => {
       reset();
     };
-  }, [generateSolution, reset, selectedNumber]);
+  }, [generateSolution, selectedNumber]);
 
   return (
     <main className={styles.container}>
