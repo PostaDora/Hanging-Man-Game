@@ -1,12 +1,24 @@
+@media only screen and (max-width: 768px) {
+  .solution {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+
 .solution {
   display: flex;
   gap: 8px;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+
   .letter {
-    height: 30px;
-    width: 35px;
     background-color: white;
     border: 1.5px solid black;
     text-align: center;
     padding: 4px;
+    flex: 0 1;
+    min-width: 16px;
+    min-height: 16px;
+    box-sizing: content-box;
   }
 }

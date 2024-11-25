@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useShallow } from "zustand/shallow";
 import { LetterButton } from "../letterButton/letterButton.component";
 import styles from "./letters.module.scss";
+import { letters } from "@/letters";
 
 export const Letters = () => {
   const { solution, guessedLetters, updateGuessedLetters, updateWrongLetters } =
@@ -16,35 +17,6 @@ export const Letters = () => {
     );
 
   const [selectedLetters, setSelectedLetters] = useState(guessedLetters);
-
-  const letters = [
-    "A",
-    "B",
-    "C",
-    "D",
-    "E",
-    "F",
-    "G",
-    "H",
-    "I",
-    "J",
-    "K",
-    "L",
-    "M",
-    "N",
-    "O",
-    "P",
-    "Q",
-    "R",
-    "S",
-    "T",
-    "U",
-    "V",
-    "W",
-    "X",
-    "Y",
-    "Z",
-  ];
 
   return (
     <div className={styles.lettersContainer}>

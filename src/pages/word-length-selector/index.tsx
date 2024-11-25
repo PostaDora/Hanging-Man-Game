@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <main className={styles.container}>
       <h1 className={styles.cardTitle}>The Hangman</h1>
-      <p className={styles.text}>Lets play Hangman!</p>
+      <p className={styles.text}>Let&apos;s play Hangman!</p>
       <p className={styles.text}>How many letters do you want in your word?</p>
       <div className={styles.lengthButtonContainer}>
         {wordLengthArray.map((wordLength) => (

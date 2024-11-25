@@ -9,7 +9,7 @@ import { Solution } from "@/components/solution/solution.component";
 import { Hangman } from "@/components/hangman/hangman.component";
 import { Message } from "@/components/message/message.component";
 
-export default function Home() {
+export default function Game() {
   const router = useRouter();
   const { guessedLetters, solution, generateSolution, wrongLetters, reset } =
     useGameStore(

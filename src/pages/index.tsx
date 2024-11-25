@@ -9,12 +9,13 @@ const GameDescription: FC = () => {
     <main className={styles.container}>
       <h1 className={styles.cardTitle}>The Hangman</h1>
       <Hangman width="auto" height="20vh"></Hangman>
-      <h2 className={styles.gameInstructionTitle}>Game instruction</h2>
+      <h2 className={styles.gameInstructionTitle}>
+        The game&apos;s objective:
+      </h2>
       <p className={styles.gameInstruction}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat.
+        The goal of Hangman is for the guessing player to figure out a secret
+        word or phrase by guessing one letter at a time before running out of
+        attempts.
       </p>
       <GameButton
         onclick={() => router.push(`/word-length-selector`)}
