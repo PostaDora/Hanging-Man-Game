@@ -4,15 +4,11 @@ import styles from "./wordLengthSelector.module.scss";
 import { LetterButton } from "@/components/letterButton/letterButton.component";
 import { GameButton } from "@/components/gameButton/gameButton.component";
 import clsx from "clsx";
-import { words } from "../words";
+import { getWordLength } from "./getWordLength.util";
 
-export default function Home() {
+export default function WordLengthChooser() {
   const [selectedWordLength, setSelectedWordLength] = useState("");
   const router = useRouter();
-
-  const wordLengthArray = Array.from(
-    new Set(words.map((word) => word.length.toString()))
-  );
 
   return (
     <main className={styles.container}>
@@ -20,7 +16,7 @@ export default function Home() {
       <p className={styles.text}>Let&apos;s play Hangman!</p>
       <p className={styles.text}>How many letters do you want in your word?</p>
       <div className={styles.lengthButtonContainer}>
-        {wordLengthArray.map((wordLength) => (
+        {getWordLength().map((wordLength) => (
           <LetterButton
             className={clsx(
               selectedWordLength === wordLength && styles.letterButton

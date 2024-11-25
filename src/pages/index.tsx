@@ -8,7 +8,7 @@ const GameDescription: FC = () => {
   return (
     <main className={styles.container}>
       <h1 className={styles.cardTitle}>The Hangman</h1>
-      <Hangman width="auto" height="20vh"></Hangman>
+      <Hangman width="auto" height="20vh" />
       <h2 className={styles.gameInstructionTitle}>
         The game&apos;s objective:
       </h2>
@@ -26,4 +26,5 @@ const GameDescription: FC = () => {
     </main>
   );
 };
+
 export default GameDescription;

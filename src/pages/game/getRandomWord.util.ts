@@ -1,4 +1,4 @@
-import { words } from "../words";
+import { words } from "../../words.constant";
 
 export const getRandomWord = (selectedNumber?: number) => {
   const getRandomNumber = (max: number) =>

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useShallow } from "zustand/shallow";
 import { LetterButton } from "../letterButton/letterButton.component";
 import styles from "./letters.module.scss";
-import { letters } from "@/letters";
+import { letters } from "@/letters.constant";
 import { usePressedKeys } from "../letterButton/useOnKeyPress.hook";
 
 export const Letters = () => {
