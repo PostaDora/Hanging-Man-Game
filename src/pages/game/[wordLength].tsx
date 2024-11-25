@@ -1,6 +1,5 @@
 import { GameButton } from "@/components/gameButton/gameButton.component";
 import { useGameStore } from "@/store/game.store";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useShallow } from "zustand/shallow";
@@ -11,10 +10,11 @@ import { Hangman } from "@/components/hangman/hangman.component";
 
 export default function Home() {
   const router = useRouter();
-  const { generateSolution, wrongLetters } = useGameStore(
+  const { generateSolution, wrongLetters, reset } = useGameStore(
     useShallow((state) => ({
       generateSolution: state.generateSolution,
       wrongLetters: state.wrongLetters,
+      reset: state.reset,
     }))
   );
 
@@ -28,25 +28,15 @@ export default function Home() {
 
   return (
     <main>
-      <button>
-        Introductions
-        <Image src="rightArrow.svg" alt="Right arrow" width="10" height="10" />
-      </button>
       <h1 className={styles.cardTitle}>The Hangman</h1>
-      <Hangman width={100} height={100} wrongLetters={wrongLetters} />
+      <Hangman width={100} height={100} wrongLetters={wrongLetters.length} />
       <Solution />
       <p>Play with a word</p>
       <Letters />
       <GameButton
-        onclick={function (): void {
-          throw new Error("Function not implemented.");
-        }}
-      >
-        End game
-      </GameButton>
-      <GameButton
-        onclick={function (): void {
-          throw new Error("Function not implemented.");
+        onclick={() => {
+          reset();
+          router.push(`/`);
         }}
       >
         Start new game

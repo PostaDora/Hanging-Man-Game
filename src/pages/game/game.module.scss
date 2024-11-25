@@ -1,6 +1,14 @@
-.cardTitle {
-  font-weight: bold;
-  padding-bottom: 5vh;
-  padding-top: 5vh;
-  text-align: center;
+.container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  padding-bottom: 20px;
+
+  .cardTitle {
+    font-weight: bold;
+    padding-bottom: 5vh;
+    padding-top: 5vh;
+    text-align: center;
+  }
 }
