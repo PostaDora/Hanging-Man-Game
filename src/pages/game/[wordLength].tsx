@@ -27,13 +27,16 @@ export default function Home() {
   }, [generateSolution, selectedNumber]);
 
   return (
-    <main>
+    <main className={styles.container}>
       <h1 className={styles.cardTitle}>The Hangman</h1>
-      <Hangman width={100} height={100} wrongLetters={wrongLetters.length} />
-      <Solution />
-      <p>Play with a word</p>
+      <div className={styles.solutionContainer}>
+        <Hangman width={100} height={100} wrongLetters={wrongLetters.length} />
+        <Solution />
+      </div>
+      <p className={styles.subtitle}>Play with a word</p>
       <Letters />
       <GameButton
+        className={styles.newGameButton}
         onclick={() => {
           reset();
           router.push(`/`);

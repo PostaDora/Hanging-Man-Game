@@ -2,9 +2,11 @@
   display: flex;
   gap: 8px;
   .letter {
-    height: 35px;
+    height: 30px;
     width: 35px;
     background-color: white;
-    border: 1px solid black;
+    border: 1.5px solid black;
+    text-align: center;
+    padding: 4px;
   }
 }

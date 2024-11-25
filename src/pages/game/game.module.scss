@@ -2,13 +2,21 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 40%;
+  width: 50%;
   padding-bottom: 20px;
 
   .cardTitle {
     font-weight: bold;
-    padding-bottom: 5vh;
-    padding-top: 5vh;
+    padding-bottom: 20px;
+    padding-top: 30px;
     text-align: center;
+  }
+  .subtitle {
+    padding-top: 15px;
+  }
+
+  .newGameButton {
+    display: block;
+    margin: 0 auto;
   }
 }
