@@ -28,7 +28,11 @@ export default function Game() {
     const isNumber =
       typeof selectedNumber === "string" && !isNaN(parseInt(selectedNumber));
     generateSolution(isNumber ? parseInt(selectedNumber) : undefined);
-  }, [generateSolution, selectedNumber]);
+
+    return () => {
+      reset();
+    };
+  }, [generateSolution, reset, selectedNumber]);
 
   return (
     <main className={styles.container}>
@@ -47,7 +51,6 @@ export default function Game() {
       <GameButton
         className={styles.newGameButton}
         onclick={() => {
-          reset();
           router.push(`/`);
         }}
       >

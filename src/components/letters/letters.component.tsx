@@ -4,6 +4,7 @@ import { useShallow } from "zustand/shallow";
 import { LetterButton } from "../letterButton/letterButton.component";
 import styles from "./letters.module.scss";
 import { letters } from "@/letters";
+import { usePressedKeys } from "../letterButton/useOnKeyPress.hook";
 
 export const Letters = () => {
   const { solution, guessedLetters, updateGuessedLetters, updateWrongLetters } =
@@ -18,6 +19,17 @@ export const Letters = () => {
 
   const [selectedLetters, setSelectedLetters] = useState(guessedLetters);
 
+  const handleOnKeyPressAndClick = (letter: string) => {
+    updateGuessedLetters(letter.toLowerCase());
+    setSelectedLetters([...selectedLetters, letter.toLowerCase()]);
+
+    if (!solution.includes(letter.toLowerCase())) {
+      updateWrongLetters(letter.toLowerCase());
+    }
+  };
+
+  usePressedKeys((letter) => handleOnKeyPressAndClick(letter));
+
   return (
     <div className={styles.lettersContainer}>
       {letters.map((letter) => (
@@ -26,11 +38,7 @@ export const Letters = () => {
           className={styles.letterButton}
           disabled={guessedLetters.includes(letter.toLowerCase())}
           onclick={() => {
-            updateGuessedLetters(letter.toLowerCase());
-            setSelectedLetters([...selectedLetters, letter.toLowerCase()]);
-            if (!solution.includes(letter.toLowerCase())) {
-              updateWrongLetters(letter.toLowerCase());
-            }
+            handleOnKeyPressAndClick(letter);
           }}
         >
           {letter}
